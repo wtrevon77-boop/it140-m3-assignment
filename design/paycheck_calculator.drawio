@@ -1,3 +1,22 @@
+START
+    SET regular_rate = 20
+    SET overtime_rate = 30
+    SET regular_hours_limit = 40
+
+    INPUT hours_worked
+
+    IF hours_worked > regular_hours_limit THEN
+        SET regular_pay = regular_hours_limit * regular_rate
+        SET overtime_hours = hours_worked - regular_hours_limit
+        SET overtime_pay = overtime_hours * overtime_rate
+        SET total_pay = regular_pay + overtime_pay
+    ELSE
+        SET total_pay = hours_worked * regular_rate
+    ENDIF
+
+    OUTPUT total_pay
+END
+
 <mxfile host="65bd71144e">
     <diagram id="paycheck-calculator-page" name="Paycheck Calculator">
         <mxGraphModel dx="668" dy="608" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="#ffffff" math="0" shadow="0">
