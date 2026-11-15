@@ -8,20 +8,24 @@
 # Use clear indentation and ALLCAPS pseudocode keywords, such as GET (input),
 # PUT (output), LET (assignment), IF, ELSE, and ENDIF where they fit your design.
 
-START paycheck_calculator
+START
+    SET regular_rate = 20
+    SET overtime_rate = 30
+    SET overtime_threshold = 40
 
-    TODO: Obtain the required program input.
+    INPUT hours_worked
 
-    IF TODO: Specify the condition for the applicable pay rule.
-        TODO: List the processing steps for the true decision path.
+    IF hours_worked <= overtime_threshold THEN
+        SET total_pay = hours_worked * regular_rate
     ELSE
-        TODO: List the processing steps for the false decision path.
+        SET regular_pay = overtime_threshold * regular_rate
+        SET overtime_hours = hours_worked - overtime_threshold
+        SET overtime_pay = overtime_hours * overtime_rate
+        SET total_pay = regular_pay + overtime_pay
     ENDIF
 
-    TODO: Output the calculated weekly paycheck.
-
-END paycheck_calculator
+    OUTPUT total_pay
+END
 
 
 # === References ===
-# TODO: List outside sources or assistance you actually used, or delete this line.
