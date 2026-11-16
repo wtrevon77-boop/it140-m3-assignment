@@ -11,15 +11,15 @@
 START
     SET regular_rate = 20
     SET overtime_rate = 30
-    SET overtime_threshold = 40
+    SET overtime_bar = 40
 
     INPUT hours_worked
 
-    IF hours_worked <= overtime_threshold THEN
+    IF hours_worked <= overtime_bar THEN
         SET total_pay = hours_worked * regular_rate
     ELSE
-        SET regular_pay = overtime_threshold * regular_rate
-        SET overtime_hours = hours_worked - overtime_threshold
+        SET regular_pay = overtime_bar * regular_rate
+        SET overtime_hours = hours_worked - overtime_bar
         SET overtime_pay = overtime_hours * overtime_rate
         SET total_pay = regular_pay + overtime_pay
     ENDIF
